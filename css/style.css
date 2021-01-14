@@ -2,6 +2,7 @@
   padding: 0;
   margin: 0;
 }
+
 body {
   background-color: rgb(219, 226, 226);
 }
@@ -16,21 +17,17 @@ body {
   margin-top: 50px;
   border-radius: 10px;
 }
-.second {
-  border: 2px black solid;
-}
 
-.tt {
-  background-color: rgb(49, 230, 49);
-}
-.cc {
-  background-color: rgb(233, 46, 46);
-}
-.list-part {
+.card {
   list-style: none;
   border: 1px solid black;
 }
-.row {
-  display: flex;
+.row-card {
   justify-content: space-between;
+  align-items: start;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
 }
+
+
