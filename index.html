@@ -26,149 +26,168 @@
 </head>
 
 <body>
-
-    <div class="container">
-        <div class="row d-flex justify-content-center">
-            <div class="col-lg-6">
-                <div id="ui">
-                    <h1 class="font-weight-bold py-3">Add New Task</h1>
-                    <form class="form-group">
-
-                        <label class="font-weight-bold">Task Name</label>
-                        <input type="text" placeholder="Name of new Task" class="form-control ">
-                        <br>
-                        <div>
-                            <label class="font-weight-bold">Task Description </label>
-                            <textarea name="Description" class="form-control" placeholder="Task Description"></textarea>
+    <div class="all-wraper">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div>
+                    <div id="ui">
+                        <div class="header">
+                            <h1 class="font-weight-bold py-3 ">Add New Task</h1>
                         </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <label class="font-weight-bold">Assigned To:</label>
-                                <input type="text" placeholder="Who is doing this task?" class="form-control">
+                        <div Id="error-display"></div>
+                        <form class="form-group" id="form">
+                            <div class="wrapper">
+                                <label for="Name" class="font-weight-bold">Task Name</label>
+                                <input type="text" name="task-name" id="taskName" placeholder="Name of new Task"
+                                    class="form-control ">
+
+                            </div>
+
+                            <br>
+                            <div class="wrapper">
+                                <label for="Description" class="font-weight-bold ">Task Description</label>
+                                <textarea name="Description" id="Description" placeholder="Task Description"
+                                    class="form-control"></textarea>
+
+                            </div>
+
+
+                            <br>
+                            <div class="row wrapper">
+                                <div class="col-lg-6">
+                                    <label for="assigned" class="font-weight-bold">Assigned To:</label>
+                                    <input type="text" name="Assigned" id="assigned"
+                                        placeholder="Who is doing this task?" class="form-control">
+
+                                </div>
+
+
+                                <div class="col-lg-6 font-weight-bold wrapper">
+                                    <label for="date">Due Date</label>
+                                    <input type="date" name="dueDate" id="date" class="form-control">
+
+                                </div>
+
+
                             </div>
                             <br>
-                            <div class="col-lg-6 font-weight-bold">
-                                <label>Due Date</label>
-                                <input type="date" class="form-control ">
-                            </div>
+                            <button type="submit" class="btn btn-primary btn-block btn-lg">Add Task</button>
 
-                        </div>
-                        <br>
-                        <button type="submit" class="btn btn-primary btn-block btn-lg">Add Task</button>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <hr>
+        <br><br>
 
-    <div class="container newwrap">
-        <ul class="list-group list-group-horizontal">
-            <div class="row-card">
-                <div class="card">
-                    <li class="card-header list-part">
-                        Tasks
-                    </li>
-                    <div class="card-body">
-                        <h5 class="card-title">Task about final project</h5>
-                        <p class="card-text">Assigned To.</p>
-                        <p class="card-text">Due date:</p>
-                        <button type="submit" class="btn btn-success">Mark as Done</button>
-                        <button type="submit" class="btn btn-danger">Delete</button>
+        <div class="newwrap" id="final-task">
+            <ul class="list-group list-group-horizontal">
+                <div class="row-card">
+                    <div class="card border-primary">
+                        <li class="card-header list-part">
+                            Tasks
+                        </li>
+                        <div class="card-body">
+                            <h5 class="card-title">Task about final project</h5>
+                            <p class="card-text" id="assignedTo">Assigned To:</p>
+                            <p class="card-text" id="due-date">Due date:</p>
+                            <button type="submit" class="btn btn-success">Mark as Done</button>
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </div>
+
                     </div>
+                    <!-- <div class="card border-primary">
 
-                </div>
-                <div class="card">
+                        <li class="card-header list-part">
+                            Tasks
+                        </li>
+                        <div class="card-body">
+                            <h5 class="card-title">Task about final project</h5>
+                            <p class="card-text">Assigned To.</p>
+                            <p class="card-text">Due date:</p>
+                            <button type="submit" class="btn btn-success">Mark as Done</button>
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </div>
 
-                    <li class="card-header list-part">
-                        Tasks
-                    </li>
-                    <div class="card-body">
-                        <h5 class="card-title">Task about final project</h5>
-                        <p class="card-text">Assigned To.</p>
-                        <p class="card-text">Due date:</p>
-                        <button type="submit" class="btn btn-success">Mark as Done</button>
-                        <button type="submit" class="btn btn-danger">Delete</button>
                     </div>
+                    <div class="card border-primary">
 
-                </div>
-                <div class="card">
+                        <li class="card-header list-part">
+                            Tasks
+                        </li>
+                        <div class="card-body">
+                            <h5 class="card-title">Task about final project</h5>
+                            <p class="card-text">Assigned To.</p>
+                            <p class="card-text">Due date:</p>
+                            <button type="submit" class="btn btn-success">Mark as Done</button>
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </div>
 
-                    <li class="card-header list-part">
-                        Tasks
-                    </li>
-                    <div class="card-body">
-                        <h5 class="card-title">Task about final project</h5>
-                        <p class="card-text">Assigned To.</p>
-                        <p class="card-text">Due date:</p>
-                        <button type="submit" class="btn btn-success">Mark as Done</button>
-                        <button type="submit" class="btn btn-danger">Delete</button>
                     </div>
+                    <div class="card border-primary">
 
-                </div>
-                <div class="card">
+                        <li class="card-header list-part">
+                            Tasks
+                        </li>
+                        <div class="card-body">
+                            <h5 class="card-title">Task about final project</h5>
+                            <p class="card-text">Assigned To.</p>
+                            <p class="card-text">Due date:</p>
+                            <button type="submit" class="btn btn-success">Mark as Done</button>
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </div>
 
-                    <li class="card-header list-part">
-                        Tasks
-                    </li>
-                    <div class="card-body">
-                        <h5 class="card-title">Task about final project</h5>
-                        <p class="card-text">Assigned To.</p>
-                        <p class="card-text">Due date:</p>
-                        <button type="submit" class="btn btn-success">Mark as Done</button>
-                        <button type="submit" class="btn btn-danger">Delete</button>
                     </div>
+                    <div class="card border-primary">
+                        <li class="card-header list-part">
+                            Tasks
+                        </li>
+                        <div class="card-body">
+                            <h5 class="card-title">Task about final project</h5>
+                            <p class="card-text">Assigned To.</p>
+                            <p class="card-text">Due date:</p>
+                            <button type="submit" class="btn btn-success">Mark as Done</button>
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </div>
 
-                </div>
-                <div class="card">
-                    <li class="card-header list-part">
-                        Tasks
-                    </li>
-                    <div class="card-body">
-                        <h5 class="card-title">Task about final project</h5>
-                        <p class="card-text">Assigned To.</p>
-                        <p class="card-text">Due date:</p>
-                        <button type="submit" class="btn btn-success">Mark as Done</button>
-                        <button type="submit" class="btn btn-danger">Delete</button>
                     </div>
+                    <div class="card border-primary">
+                        <li class="card-header list-part">
+                            Tasks
+                        </li>
+                        <div class="card-body">
+                            <h5 class="card-title">Task about final project</h5>
+                            <p class="card-text">Assigned To.</p>
+                            <p class="card-text">Due date:</p>
+                            <button type="submit" class="btn btn-success">Mark as Done</button>
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </div>
 
-                </div>
-                <div class="card">
-                    <li class="card-header list-part">
-                        Tasks
-                    </li>
-                    <div class="card-body">
-                        <h5 class="card-title">Task about final project</h5>
-                        <p class="card-text">Assigned To.</p>
-                        <p class="card-text">Due date:</p>
-                        <button type="submit" class="btn btn-success">Mark as Done</button>
-                        <button type="submit" class="btn btn-danger">Delete</button>
                     </div>
+                    <div class="card border-primary">
+                        <li class="card-header list-part">
+                            Tasks
+                        </li>
+                        <div class="card-body">
+                            <h5 class="card-title">Task about final project</h5>
+                            <p class="card-text">Assigned To.</p>
+                            <p class="card-text">Due date:</p>
+                            <button type="submit" class="btn btn-success">Mark as Done</button>
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </div>
 
-                </div>
-                <div class="card">
-                    <li class="card-header list-part">
-                        Tasks
-                    </li>
-                    <div class="card-body">
-                        <h5 class="card-title">Task about final project</h5>
-                        <p class="card-text">Assigned To.</p>
-                        <p class="card-text">Due date:</p>
-                        <button type="submit" class="btn btn-success">Mark as Done</button>
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </div>
+                    </div> -->
 
-                </div>
-            
 
                 </div>
 
 
-            </div>
+        </div>
         </ul>
     </div>
-
+    </div>
+    <script src="./js/taskManager.js"> </script>
+    <script src="./js/index.js"> </script>
 </body>
 
 </html>
