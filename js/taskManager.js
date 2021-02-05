@@ -1,24 +1,28 @@
-class TaskManager {
+
+export default class TaskManager {
   constructor(currentId = 0) {
-    this.task = [];
-    this.currentId = currentId; 
+    this.currentId = currentId;
+    this.tasks = [];
   }
-  addTask(taskName, desc, assign, due, stat) {
-    this.currentId++;    
-    const jobName = {
-      name: taskName,
-      description: desc,
-      assignedTo: assign,
-      dueDuate: due,
-      status: stat
-    } 
-    this.task.push(jobName);
+
+  addTask(name, description, assignedTo, dueDate, status) {
+    this.tasks.push({
+      currentId: this.currentId,
+      name: name,
+      description: description,
+      assignedTo: assignedTo,
+      dueDate: dueDate,
+      status: "TODO",
+    });
+    this.currentId++;
   }
 }
-const taskArray = new TaskManager ();
 
-taskArray.addTask('final', 'project', 'denise', 'today', 'TODO')
-taskArray.addTask('final', 'project', 'denise', 'today', 'TODO')
-taskArray.addTask('final', 'project', 'denise', 'today', 'TODO')
+let newTask = new TaskManager();
+newTask.addTask("Developer", "nice work", "Tigist", "2021/04/03");
+// console.log(newTask);
 
-console.log(taskArray);
+// let newTask2 = new TaskManager();
+newTask.addTask("web", "good", "toooo", "2011/04/08", "ToDo");
+console.log(newTask.tasks);
+
