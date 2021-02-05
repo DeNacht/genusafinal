@@ -18,6 +18,7 @@ body {
   overflow: hidden;
   width: 600px;
   max-width: 100%;
+  margin-top: 50px;
 }
 .btn:hover {
   background: white;
@@ -25,7 +26,6 @@ body {
   color: black;
 }
 #ui {
-  /* padding: 30px; */
   margin-top: 50px;
   border-radius: 10px;
 }
@@ -38,25 +38,17 @@ body {
 .all-wraper {
   margin: auto;
 }
-/* body {
-  background-image: url(../images/bg-image.jpeg);
-  height: 100vh;
-  background-size: cover;
-  background-position: center;
-} */
+
 hr {
   border: 1px solid white;
 }
 
 #error-display {
-  padding: 16px;
-  border: 1px solid red;
   display: none;
-  font-size: 18px;
-  line-height: 1.5em;
-  background: #ffdce2;
-  font-weight: bold;
 }
 #final-task {
+  display: none;
+}
+#inProgress {
   display: none;
 }
