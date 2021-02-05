@@ -1,3 +1,4 @@
+
 export default class TaskManager {
   constructor(currentId = 0) {
     this.currentId = currentId;
@@ -24,3 +25,4 @@ newTask.addTask("Developer", "nice work", "Tigist", "2021/04/03");
 // let newTask2 = new TaskManager();
 newTask.addTask("web", "good", "toooo", "2011/04/08", "ToDo");
 console.log(newTask.tasks);
+
