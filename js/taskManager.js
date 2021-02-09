@@ -1,5 +1,4 @@
-
-export default class TaskManager {
+class TaskManager {
   constructor(currentId = 0) {
     this.currentId = currentId;
     this.tasks = [];
@@ -16,13 +15,22 @@ export default class TaskManager {
     });
     this.currentId++;
   }
+  // deleteTask(taskId) {
+  //   let newTasks = [];
+  //   for (let i = 0; i < tasks.length; i++) {
+  //     let task = tasks[i];
+  //     if (task.id !== taskId) {
+  //       newTasks.push(task);
+  //       this.tasks = newTasks;
+  //     }
+  //   }
+  // }
 }
 
 let newTask = new TaskManager();
-newTask.addTask("Developer", "nice work", "Tigist", "2021/04/03");
+// newTask.addTask("Developer", "nice work", "hello", "2021/04/03");
 // console.log(newTask);
 
 // let newTask2 = new TaskManager();
-newTask.addTask("web", "good", "toooo", "2011/04/08", "ToDo");
+// newTask.addTask("web", "good", "toooo", "2011/04/08", "ToDo");
 console.log(newTask.tasks);
-

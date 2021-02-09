@@ -1,74 +1,67 @@
-// import TaskManager from "./taskManager";
+let newTask2 = new TaskManager();
 
-// ***************TaskManager.js************************************
-class TaskManager {
-  constructor(currentId = 1) {
-    this.currentId = currentId;
-    this.tasks = [];
-  }
-
-  addTask(name, description, assignedTo, dueDate, status) {
-    this.tasks.push({
-      currentId: this.currentId,
-      name: name,
-      description: description,
-      assignedTo: assignedTo,
-      dueDate: dueDate,
-      status: "TODO",
-    });
-    this.currentId++;
-  }
-}
-
-let newTask = new TaskManager();
-newTask.addTask("Developer", "nice work", "Tigist", "2021/04/03", status);
-// console.log(newTask);
-
-// let newTask2 = new TaskManager();
-newTask.addTask("web", "good", "toooo", "2011/04/08", status);
-console.log(newTask.tasks);
-
+//  newTask2.getTaskById(0)
+// document.getElementById("form").reset();
 // ***************indexedDB.js***********************
-const task = document.getElementById("taskName");
-const description = document.getElementById("Description");
-const assigned = document.getElementById("assigned");
-const dueDate = document.getElementById("date");
-const form = document.getElementById("form");
-const errorDisplay = document.getElementById("error-display");
-const finalTask = document.getElementById("final-task");
-const assignedTo = document.getElementById("assignedTo");
-const lastDueDate = document.getElementById("due-date");
-const taskN = document.getElementById("taskN");
-const DescriptionT = document.getElementById("DescriptionT");
-const taskSubmit = document.getElementById("sub");
-const markAsDone = document.getElementById("markAsDone");
-const deleteS = document.getElementById("deleteS");
-const inProgress = document.getElementById("inProgress");
-const newAddedTask = document.getElementById("newAddedTask");
-// to get value
-let taskValue = task.value;
-let descriptionValue = description.value;
-let assignedValue = assigned.value;
-let dueDateValue = dueDate.value;
-let newAddedTaskValue = newAddedTask.value;
 
+// ************all form**************************
+let form = document.getElementById("form");
+
+// form part variables
+let task = document.getElementById("taskName");
+let description = document.getElementById("Description");
+let assigned = document.getElementById("assigned");
+let dueDate = document.getElementById("date");
+let errorDisplay = document.getElementById("error-display");
+let taskSubmit = document.getElementById("subAddTask");
+
+// card part
+let finalTask = document.getElementById("final-task");
+let taskN = document.getElementById("taskN");
+let DescriptionT = document.getElementById("DescriptionT");
+let assignedTo = document.getElementById("assignedTo");
+let lastDueDate = document.getElementById("due-date");
+
+// Mark as done and delete
+let id = 0;
+let deleteS = document.getElementById("deleteS");
+let inProgress = document.getElementById("inProgress");
+let newAddedTask = document.getElementById("newAddedTask");
+// to get value
+// let newAddedTaskValue = newAddedTask.value;
+let listContainer = document.getElementsByClassName("list-group")[0];
+let taskNumber = 1;
+let formattedDate;
 let count = [];
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   let messages = [];
-  if (task.value === "" || task.value === null) {
+  let taskValue = task.value;
+  let descriptionValue = description.value;
+  let assignedValue = assigned.value;
+  let dueDateValue = dueDate.value;
+  // let date = new Date(this.tasks.dueDate);
+  // formattedDate = date.toDateString();
+  let myDate = new Date(dueDateValue);
+  // let year = myDate.getFullYear();
+  // let day = myDate.getDate() + 1;
+  // let month = myDate.getMonth() + 1;
+  // formattedDate = `${month}/${day}/${year}`;
+  formattedDate = myDate.toDateString();
+
+  if (taskValue === "" || taskValue === null) {
     messages.push("Task name is required");
     count.push(1);
   }
-  if (description.value === "" || description.value === null) {
+  if (descriptionValue === "" || descriptionValue === null) {
     messages.push("Description is blank");
     count.push(2);
   }
-  if (assigned.value === "" || assigned.value === null) {
+  if (assignedValue === "" || assignedValue === null) {
     messages.push("Assigned to is required");
     count.push(3);
   }
-  if (dueDate.value === "" || dueDate.value === null) {
+  if (dueDateValue === "" || dueDateValue === null) {
     messages.push("Due date is blank");
     count.push(4);
   }
@@ -83,39 +76,84 @@ form.addEventListener("submit", (e) => {
   if (messages.length === 0) {
     e.preventDefault();
     finalTask.style.display = "block";
-    assignedTo.innerText = "Assigned To: " + assigned.value;
-    lastDueDate.innerText = "Due Date : " + dueDate.value;
-    taskN.innerText = "Task Name: " + task.value;
-    DescriptionT.innerText = "Description: " + description.value;
+    addNewTask();
+    taskNumber++;
+    // id++;
+  }
+  task.value = "";
+  description.value = "";
+  assigned.value = "";
+  dueDate.value = "";
+
+  // newTask2.addTask("hhhh", "uuuu", "huuhh", "mmm", status);
+  // console.log(newTask2.tasks[0].name);
+
+  // newTask2.render();
+  // let taskHtml = tasksHtmlList();
+  // console.log(taskHtml);
+});
+
+function addNewTask() {
+  let newHtml = `
+  <li id = "${id}" class="list-group list-group-horizontal">
+      <div class="card border-primary">
+        <h5
+          id="newAddedTask"
+          class="card-header list-part font-weight-bold text-center"
+          >
+          Task ${taskNumber}
+        </h5>
+        <div class="card-body">
+            <p class="card-text" id="taskN">Task Name: ${task.value}</p>
+            <p class="card-text" id="DescriptionT">Description: ${description.value}</p>
+            <p class="card-text" id="assignedTo">Not Assigned To: ${assigned.value}</p>
+            <p class="card-text" id="due-date">Due date: ${formattedDate}</p>
+            <p class="card-text status">Status:TODO </p>
+            <button type="submit" id="markAsDone" class="btn btn-success">Mark as Done</button>
+            <button type="submit" id="deleteS" class="btn btn-danger">Delete</button>
+       </div>
+      </div>
+    </li>`;
+  listContainer.insertAdjacentHTML("beforeend", newHtml);
+}
+
+listContainer.addEventListener("click", (e) => {
+  let selected = e.target;
+  if (selected.classList.contains("btn-danger")) {
+    let test = selected.parentElement.parentElement.parentElement;
+    let selectedId = test.getAttribute("id");
+    // console.log(newTask2.tasks);
+    newTask2.tasks.splice(selectedId, 1);
+    // console.log(newTask2.tasks);
+    test.remove();
   }
 });
-function deleteButton(e) {
-  e.preventDefault();
-  finalTask.style.display = "none";
-  taskValue === " " &&
-    descriptionValue === " " &&
-    assignedValue === " " &&
-    dueDateValue === " ";
-}
-deleteS.onclick = deleteButton;
+listContainer.addEventListener("click", (event) => {
+  let selected1 = event.target;
+  let selectContainer = selected1.parentElement.parentElement.parentElement;
+  // console.log(selectContainer);
+  if (selected1.classList.contains("btn-success")) {
+    let status = selectContainer.getElementsByClassName("status")[0];
+    selected1.innerText = "Done";
+    status.innerText = "Status: DONE";
 
-function markAsB() {
-  markAsDone.style.display = "none";
-  inProgress.style.display = "block";
-}
-
-markAsDone.onclick = markAsB;
-
-// function createsNewTask() {
-//   if (messages.length === 0) {
-//     finalTask.style.display = "block";
-//     newAddedTaskValue = newAddedTaskValue++;
-//   }
-// }
-
-// taskSubmit.onsubmit = "return false";
-
-taskSubmit.addEventListener("click", function () {
-  newTask.addTask();
-  console.log(newTask.tasks);
+    // newTask2.deleteTask(1);
+  }
 });
+
+function showToConsole() {
+  let taskValue = task.value;
+  let descriptionValue = description.value;
+  let assignedValue = assigned.value;
+  let dueDateValue = dueDate.value;
+  newTask2.addTask(
+    taskValue,
+    descriptionValue,
+    assignedValue,
+    dueDateValue,
+    status
+  );
+
+  console.log(newTask2.tasks);
+}
+taskSubmit.onclick = showToConsole;
