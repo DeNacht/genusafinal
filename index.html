@@ -27,69 +27,70 @@
 </head>
 
 <body>
-    <div class="all-wraper">
-        <div class="container">
-            <div class="row d-flex justify-content-center">
-                <div>
-                    <div id="ui">
-                        <div class="header">
-                            <h1 class="font-weight-bold py-3 ">Task List</h1>
-                            <h2 class="font-weight-bold py-3 ">New Task</h2>
-                        </div>
-                        <div class="alert alert-danger" Id="error-display"></div>
-                        <form class="form-group" id="form">
-                            <div class="wrapper">
-                                <label for="Name" class="font-weight-bold">Task Name</label>
-                                <input type="text" name="task-name" id="taskName" placeholder="Name of new Task"
-                                    class="form-control ">
-
-                            </div>
-
-                            <br>
-                            <div class="wrapper">
-                                <label for="Description" class="font-weight-bold ">Task Description</label>
-                                <textarea name="Description" id="Description" placeholder="Task Description"
-                                    class="form-control"></textarea>
-
-                            </div>
-
-
-                            <br>
-                            <div class="row wrapper">
-                                <div class="col-lg-6">
-                                    <label for="assigned" class="font-weight-bold">Assigned To:</label>
-                                    <input type="text" name="Assigned" id="assigned"
-                                        placeholder="Who is doing this task?" class="form-control">
-
-                                </div>
-
-
-                                <div class="col-lg-6 font-weight-bold wrapper">
-                                    <label for="date">Due Date</label>
-                                    <input type="date" name="dueDate" id="date" class="form-control">
-
-                                </div>
-                            </div>
-                            <br>
-                            <button type="submit" id="subAddTask" class="btn btn-primary btn-block btn-lg">Add
-                                Task</button>
-
-                        </form>
-                    </div>
-                </div>
+    <div class="container">
+        <div class="row" id="row1">
+            <!--3 columns, center column holds title-->
+            <div class="col"></div>
+            <div class="col-xlg-7 col-lg-8 col-md-11 col-sm-12" id="title">
+                Task Manager
+                <h4>Organize your world.</h4>
             </div>
+            <div class="col"></div>
         </div>
-        <br><br>
-        <div class="newwrap" id="final-task">
 
+        <div class="row" id="row2">
+            <!--3 columns, center column holds task form-->
+            <div class="col"></div>
+            <div class="col-xlg-6 col-lg-6 col-md-9 col-sm-12" id="form-header">
+                <div class="header">
+                    <h3 class="font-weight-bold" style="text-align:center;">New Task</h3>
+                </div>
 
+                <div class="alert alert-danger" id="error-display"></div>
+                <form class="form-group" id="form">
 
-            <ul class="list-group list-group-horizontal">
+                    <label for="Name" class="font-weight-bold">Task Name</label>
+                    <input type="text" name="task-name" id="taskName" placeholder="Name of new Task"
+                        class="form-control ">
 
+                    <br>
 
-            </ul>
+                    <label for="Description" class="font-weight-bold ">Task Description</label>
+                    <textarea name="description" id="description" placeholder="Task Description"
+                        class="form-control"></textarea>
+
+                    <br>
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="assigned" class="font-weight-bold">Assigned To:</label>
+                            <input type="text" name="Assigned" id="assigned" placeholder="Who is doing this task?"
+                                class="form-control">
+                        </div>
+
+                        <div class="col-6">
+                            <label for="date" class="font-weight-bold">Due Date</label>
+                            <input type="date" name="dueDate" id="date" class="form-control">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="status"></label>
+                        <input type="text" id="status" name="status">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block  btn-lg" id="subAddTask">Add Task</button>
+                </form>
+            </div>
+            <div class="col"></div>
         </div>
+
+        <section id="task-display">
+            <div class="task-card-display containerR">
+                <ul id="list-container" class="list-group-horizontal-lg d-flex flex-wrap">
+
+                </ul>
+            </div>
+        </section>
     </div>
+
     <script type='text/javaScript' src="./js/taskManager.js"> </script>
     <script type='text/javaScript' src="./js/index.js"> </script>
 </body>

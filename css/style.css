@@ -1,54 +1,79 @@
-* {
+/** {
   box-sizing: border-box;
-}
+}  * {
+  box-sizing: border-box;
+} */
+
 body {
-  background-color: #9b59b6;
-  /* background-image: url(../images/bg-image.jpeg); */
   font-family: "Open Sans", sans-serif;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  /* align-items: center;
+  justify-content: center; */
   min-height: 100vh;
   margin: 0;
-}
-.container {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
-  width: 600px;
-  max-width: 100%;
-  margin-top: 50px;
-}
-.btn:hover {
-  background: white;
-  border: 1px solid;
-  color: black;
-}
-#ui {
-  margin-top: 50px;
-  border-radius: 10px;
+  background-image: url(../images/bg-image.jpg);
+  /* background-image: url(./images/colorful.jpg); */
 }
 
-.card {
+#title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 50px;
+  font-family: "Julius Sans One", sans-serif;
+  background-color: rgb(170, 121, 170);
+  margin-top: 20px;
+}
+
+#form-header {
+  align-items: center;
+  background-color: rgb(170, 121, 170);
+  border-radius: 10px;
+  box-shadow: 0 10px 8px rgba(0, 0, 0, 0.3);
+  padding: 30px;
+  margin-bottom: 50px;
+  margin-top: 40px;
+}
+
+/*.card {
   list-style: none;
   border: 1px solid black;
 }
-
-.all-wraper {
-  margin: auto;
+*/
+#subAddTask {
+  color: black;
+  font-weight: bolder;
+  text-align: center;
+  margin-top: 20px;
 }
 
-hr {
-  border: 1px solid white;
+#subAddTask:hover {
+  background-color: rgb(207, 241, 167);
+  border-color: black;
+  border-width: 2px;
 }
+
+/* #cardRender {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  max-width: 1900px;
+  grid-template-columns: repeat(4, 1fr);
+  border: blue;
+} */
 
 #error-display {
   display: none;
 }
-#final-task {
-  display: none;
+
+#list-container {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  max-width: 1900px;
+  grid-template-columns: repeat(4, 1fr);
+  border: blue;
+  list-style: none;
 }
-#inProgress {
+#status {
   display: none;
 }
