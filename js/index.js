@@ -25,9 +25,6 @@ formRegistration.addEventListener("submit", (e) => {
   let assignedTo = newTaskAssignedTo.value;
   let dueDate = newTaskDueDate.value;
 
-  // let myDate = new Date(dueDateValue);
-  // formattedDate = myDate.toDateString();
-
   if (taskName === "" || taskName === null) {
     messages.push("Task name is required");
     count.push(1);

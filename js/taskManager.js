@@ -4,8 +4,8 @@ class TaskManager {
   constructor(currentId = 0) {
     //Check if there is anything saved in local storage. If there is set this.tasks array to the contents in local storage
     let savedTaskList = localStorage.getItem("savedList");
-    let savedCurrentId = localStorage.getItem("currentId");
-    if (savedTaskList && savedCurrentId) {
+    // let savedCurrentId = localStorage.getItem("currentId");
+    if (savedTaskList) {
       this.tasks = JSON.parse(savedTaskList);
       this.load(this.tasks);
       this.currentId = this.tasks.length;
@@ -57,13 +57,13 @@ class TaskManager {
   }
   save() {
     localStorage.setItem("savedList", JSON.stringify(this.tasks));
-    localStorage.setItem("currentId", JSON.stringify(this.currentId));
+    // localStorage.setItem("currentId", JSON.stringify(this.currentId));
   }
   //This method is used to display the data stored in local storage onto the screen
 
   load(thisLoadTasks) {
     for (let i = 0; i < thisLoadTasks.length; i++) {
-      let newHtml = `<li id="${thisLoadTasks[i]["id"]}" class="task-card card border-primary col-4 ">
+      let newHtml = `<li id="${thisLoadTasks[i]["id"]}" class="task-card card border-primary col-4">
                      <h5 class="card-header list-part font-weight-bold text-center"
           >
           Task${taskNumber}
@@ -72,8 +72,9 @@ class TaskManager {
                 <div class="card-text">Description: ${thisLoadTasks[i]["description"]}</div>
                 <div class="card-text">Assigned To: ${thisLoadTasks[i]["assignedTo"]}</div>
                 <div class="card-text">Due date: ${thisLoadTasks[i]["dueDate"]}</div>
+           
                 <div class="status">${thisLoadTasks[i]["status"]}</div>
-                <div><button class="btn done-button  btn-success">Mark Done</button></div>
+                <div><button class="btn done-button  btn-success">Mark As Done</button></div>
                 <div><button class=" btn delete-button btn-danger ">Delete</button></div>
             </li><br>`;
 
