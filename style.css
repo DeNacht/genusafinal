@@ -69,3 +69,7 @@ body {
 #status {
   display: none;
 }
+
+#group {
+  align-content: center;
+}
